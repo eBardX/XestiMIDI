@@ -53,3 +53,8 @@ extension SMFEventTime {
                          fraction: fraction)!   // swiftlint:disable:this force_unwrapping
     }
 }
+
+// MARK: - Sendable
+
+extension SMFEventTime: Sendable {
+}

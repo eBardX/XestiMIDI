@@ -85,8 +85,6 @@ extension MIDISystemMessage {
             song.bytesValue
 
         case let .systemExclusive(dataBytes):
-            // should validate dataBytes first…
-
             dataBytes
         }
     }

@@ -47,3 +47,8 @@ extension MIDIData2Value: BytesValueConvertible {
         return [byte0Value, byte1Value]
     }
 }
+
+// MARK: - Sendable
+
+extension MIDIData2Value: Sendable {
+}

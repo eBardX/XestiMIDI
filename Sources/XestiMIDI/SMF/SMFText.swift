@@ -33,6 +33,20 @@ extension SMFText: BytesValueConvertible {
     // MARK: Public Instance Properties
 
     public var bytesValue: [UInt8]? {
-        Array(stringValue.utf8)
+        var bytes: [UInt8] = []
+
+        for scalar in stringValue.unicodeScalars {
+            guard let byte = UInt8(exactly: scalar.value)
+            else { return nil }
+
+            bytes.append(byte)
+        }
+
+        return bytes
     }
+}
+
+// MARK: - Sendable
+
+extension SMFText: Sendable {
 }

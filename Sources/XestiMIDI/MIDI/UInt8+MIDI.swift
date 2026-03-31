@@ -2,7 +2,7 @@
 
 extension UInt8 {
 
-    // MARK: Public Instance Propert$
+    // MARK: Public Instance Properties
 
     public var isMIDIDataByte: Bool {
         (0...0x7f).contains(self)

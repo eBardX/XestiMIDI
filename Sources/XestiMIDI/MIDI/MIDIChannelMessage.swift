@@ -75,10 +75,10 @@ extension MIDIChannelMessage {
 
         case 0xa0:
             guard let note = MIDIData1Value(bytesValue: [dataBytes[0]]),
-                  let velocity = MIDIData1Value(bytesValue: [dataBytes[1]])
+                  let pressure = MIDIData1Value(bytesValue: [dataBytes[1]])
             else { return nil }
 
-            self = .polyphonicPressure(channel, note, velocity)
+            self = .polyphonicPressure(channel, note, pressure)
 
         case 0xb0:
             guard let controller = MIDIController(bytesValue: [dataBytes[0]]),
@@ -94,10 +94,10 @@ extension MIDIChannelMessage {
             self = .programChange(channel, program)
 
         case 0xd0:
-            guard let velocity = MIDIData1Value(bytesValue: [dataBytes[0]])
+            guard let pressure = MIDIData1Value(bytesValue: [dataBytes[0]])
             else { return nil }
 
-            self = .channelPressure(channel, velocity)
+            self = .channelPressure(channel, pressure)
 
         case 0xe0:
             guard let pitchBend = MIDIPitchBend(bytesValue: Array(dataBytes[0...1]))
@@ -127,8 +127,8 @@ extension MIDIChannelMessage {
 
     public var dataBytes: [UInt8]? {
         switch self {
-        case let .channelPressure(_, velocity):
-            velocity.bytesValue
+        case let .channelPressure(_, pressure):
+            pressure.bytesValue
 
         case let .controlChange(_, controller, controlValue):
             _combine(controller, controlValue)
@@ -142,8 +142,8 @@ extension MIDIChannelMessage {
         case let .pitchBendChange(_, pitchBend):
             pitchBend.bytesValue
 
-        case let .polyphonicPressure(_, note, velocity):
-            _combine(note, velocity)
+        case let .polyphonicPressure(_, note, pressure):
+            _combine(note, pressure)
 
         case let .programChange(_, program):
             program.bytesValue

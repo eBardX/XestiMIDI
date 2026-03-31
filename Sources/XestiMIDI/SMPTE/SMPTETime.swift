@@ -1,3 +1,5 @@
+// © 2025–2026 John Gary Pusey (see LICENSE.md)
+
 public struct SMPTETime {
 
     // MARK: Public Initializers
@@ -25,7 +27,7 @@ public struct SMPTETime {
         self.second = second
     }
 
-    // MARK: Public Instance Proprties
+    // MARK: Public Instance Properties
 
     public let fraction: UInt
     public let frame: UInt

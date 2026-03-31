@@ -1,3 +1,5 @@
+// © 2025–2026 John Gary Pusey (see LICENSE.md)
+
 public enum SMPTEFrameRate {
     case fps24
     case fps25

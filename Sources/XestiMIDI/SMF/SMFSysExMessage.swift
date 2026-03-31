@@ -31,7 +31,7 @@ extension SMFSysExMessage {
         switch self {
         case let .escape(dataBytes),
              let .systemExclusive(dataBytes):
-            dataBytes   // should validate dataBytes first…
+            dataBytes
         }
     }
 

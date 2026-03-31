@@ -47,3 +47,8 @@ extension SMFTickRate: BytesValueConvertible {
         return [byte0Value, byte1Value]
     }
 }
+
+// MARK: - Sendable
+
+extension SMFTickRate: Sendable {
+}

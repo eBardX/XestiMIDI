@@ -46,8 +46,7 @@ extension SMFParserTests {
         let data = _makeFormat0Data()
         let parser = SMFParser()
         let sequence = try parser.parse(data)
-        var formatter = SMFFormatter(sequence: sequence)
-        let formatted = try formatter.format()
+        let formatted = try SMFFormatter().format(sequence)
         let reparsed = try parser.parse(formatted)
 
         #expect(reparsed.format == .format0)

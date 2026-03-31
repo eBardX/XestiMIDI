@@ -22,3 +22,8 @@ extension SMFParser {
         return try reader.readSequence()
     }
 }
+
+// MARK: - Sendable
+
+extension SMFParser: Sendable {
+}

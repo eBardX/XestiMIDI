@@ -28,3 +28,8 @@ public struct SMFChunkType: StringRepresentable {
 
     public let stringValue: String
 }
+
+// MARK: - Sendable
+
+extension SMFChunkType: Sendable {
+}

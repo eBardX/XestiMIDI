@@ -74,7 +74,7 @@ public struct MIDIController: UIntRepresentable {
     public static let sostenuto                       = Self(66)
     public static let soundVariation                  = Self(70)
     public static let sustain                         = Self(64)
-    public static let tremeloDepth                    = Self(92)
+    public static let tremoloDepth                    = Self(92)
     public static let vibratoDelay                    = Self(78)
     public static let vibratoDepth                    = Self(77)
     public static let vibratoRate                     = Self(76)
@@ -120,4 +120,9 @@ extension MIDIController: BytesValueConvertible {
 
         return [byte0Value]
     }
+}
+
+// MARK: - Sendable
+
+extension MIDIController: Sendable {
 }

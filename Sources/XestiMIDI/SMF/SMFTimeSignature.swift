@@ -9,7 +9,7 @@ public struct SMFTimeSignature {
                  clockRate: UInt,
                  beatRate: UInt) {
         guard (1...255).contains(numerator),
-              (2...255).contains(denominator),
+              (0...255).contains(denominator),
               (1...255).contains(clockRate),
               (1...255).contains(beatRate)
         else { return nil }

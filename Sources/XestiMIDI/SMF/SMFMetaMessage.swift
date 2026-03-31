@@ -40,7 +40,7 @@ extension SMFMetaMessage {
 
             self = .sequenceNumber(seqNum)
 
-        case 0x01...0x1f:
+        case 0x01...0x09:
             guard let message = Self._makeTextMessage(typeByte,
                                                       dataBytes)
             else { return nil }
@@ -59,7 +59,7 @@ extension SMFMetaMessage {
 
             self = .midiPort(port)
 
-        case 0x2f:
+        case 0x2f where dataBytes.isEmpty:
             self = .endOfTrack
 
         case 0x51:
@@ -86,10 +86,7 @@ extension SMFMetaMessage {
 
             self = .keySignature(keySig)
 
-        case 0x7f:
-            guard !dataBytes.isEmpty
-            else { return nil }
-
+        case 0x7f where !dataBytes.isEmpty:
             self = .sequencerSpecific(dataBytes)
 
         default:

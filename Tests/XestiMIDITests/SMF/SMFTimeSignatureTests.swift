@@ -63,8 +63,23 @@ extension SMFTimeSignatureTests {
 
     @Test
     func test_init_invalid_denominator() {
-        #expect(SMFTimeSignature(numerator: 4, denominator: 0, clockRate: 24, beatRate: 8) == nil)
-        #expect(SMFTimeSignature(numerator: 4, denominator: 1, clockRate: 24, beatRate: 8) == nil)
+        #expect(SMFTimeSignature(numerator: 4, denominator: 256, clockRate: 24, beatRate: 8) == nil)
+    }
+
+    @Test
+    func test_init_valid_denominator_zero() {
+        let timeSig = SMFTimeSignature(numerator: 4, denominator: 0, clockRate: 24, beatRate: 8)
+
+        #expect(timeSig != nil)
+        #expect(timeSig?.denominator == 0)
+    }
+
+    @Test
+    func test_init_valid_denominator_one() {
+        let timeSig = SMFTimeSignature(numerator: 4, denominator: 1, clockRate: 24, beatRate: 8)
+
+        #expect(timeSig != nil)
+        #expect(timeSig?.denominator == 1)
     }
 
     @Test
