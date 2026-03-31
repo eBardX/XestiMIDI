@@ -82,7 +82,7 @@ public struct MIDIController: UIntRepresentable {
     // MARK: Public Type Methods
 
     public static func isValid(_ uintValue: UInt) -> Bool {
-        (1...127).contains(uintValue)
+        (0...127).contains(uintValue)
     }
 
     // MARK: Public Initializers
